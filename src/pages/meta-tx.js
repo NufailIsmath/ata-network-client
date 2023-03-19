@@ -63,7 +63,7 @@ export default function MetaTx() {
     };
   }
 
-  const getSignature = async (transfers) => {
+  const getSignature = async (values) => {
     let web3;
 
     if (window.ethereum) {
@@ -81,6 +81,28 @@ export default function MetaTx() {
     let currentAccounts = await web3.eth.getAccounts();
     let currentAccount = currentAccounts[0];
     console.log(currentAccount);
+
+    const transfers = [
+      {
+        tokenAddress: values.token1Address,
+        recipient: values.token1RecAddress,
+        amount: values.token1Amount,
+      },
+      {
+        tokenAddress: values.token2Address,
+        recipient: values.token2RecAddress,
+        amount: values.token2Amount,
+      },
+      {
+        tokenAddress: values.token3Address,
+        recipient: values.token3RecAddress,
+        amount: values.token3Amount,
+      },
+    ];
+
+    const ReceiverABI = require("../utils/ABI/Receiver.json");
+
+    const Receiver = new web3.eth.Contract(ReceiverABI, contractId);
 
     let domainData = {
       name: "BatchedERC20Transfer",
@@ -127,7 +149,7 @@ export default function MetaTx() {
       },
     ];
 
-    const nonce = 0;
+    const nonce = await Receiver.methods.nonces(currentAccount).call();
 
     let message = {};
 
@@ -216,25 +238,8 @@ export default function MetaTx() {
         onSubmit={async (values, actions) => {
           try {
             //console.log(values);
-            const transfers = [
-              {
-                tokenAddress: values.token1Address,
-                recepient: values.token1RecAddress,
-                amount: values.token1Amount,
-              },
-              {
-                tokenAddress: values.token2Address,
-                recepient: values.token2RecAddress,
-                amount: values.token2Amount,
-              },
-              {
-                tokenAddress: values.token3Address,
-                recepient: values.token3RecAddress,
-                amount: values.token3Amount,
-              },
-            ];
 
-            await getSignature(transfers);
+            await getSignature(values);
 
             // const response = await apis.metaTx({
             //   transfers: [

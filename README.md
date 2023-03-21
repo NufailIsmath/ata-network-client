@@ -11,8 +11,9 @@ To run this client-side Next.Js app:
 ● Run `npm run dev` to start the client side
 
 ● Update the relayer public key based on your relayer address in `src/utils/config.js`
-● `JSON
+
+     
         export const relayer = {
             publicKey: "0x73c0D20aB453aD893db78998c7f4c47ED9D86837"
         }
-        `
+        

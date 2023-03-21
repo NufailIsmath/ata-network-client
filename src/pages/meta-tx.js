@@ -10,6 +10,7 @@ import * as Yup from "yup";
 import { apis } from "./api/api";
 import { useState, useEffect } from "react";
 import Web3 from "web3";
+import { relayer } from "@/utils/config";
 
 const SignTokenSchema = Yup.object().shape({
   token1Address: Yup.string().required("Required"),
@@ -155,8 +156,8 @@ export default function MetaTx() {
 
     message.from = currentAccount;
     message.nonce = nonce;
-    message.relayer = "0x73c0D20aB453aD893db78998c7f4c47ED9D86837";
-    message.functionSignature = "0x00"; //Contract.methods.executeBatchedERC20Transfers().encodeABI();
+    message.relayer = relayer.publicKey;
+    message.functionSignature = "0x00";
 
     const dataToSign = JSON.stringify({
       types: {
@@ -189,7 +190,7 @@ export default function MetaTx() {
         const metaTx = {
           from: currentAccount,
           nonce: nonce,
-          relayer: "0x73c0D20aB453aD893db78998c7f4c47ED9D86837",
+          relayer: relayer.publicKey,
           functionSignature: "0x00",
         };
 

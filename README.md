@@ -10,7 +10,7 @@ To run this client-side Next.Js app:
 
 ● Run `npm run dev` to start the client side
 
-● Update the relayer public key based on your relayer address in `src/utils/config.js`
+● Update the relayer public key based on your relayer address (that executes meta-tx in ```ata-network-relayer```)  in `src/utils/config.js`
 
      
         export const relayer = {

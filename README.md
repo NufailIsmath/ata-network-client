@@ -14,6 +14,6 @@ To run this client-side Next.Js app:
 
      
         export const relayer = {
-            publicKey: "0x73c0D20aB453aD893db78998c7f4c47ED9D86837"
+            publicKey: "<YOUR_RELAYER_PUBLIC_KEY"
         }
         

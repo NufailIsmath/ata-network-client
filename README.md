@@ -17,7 +17,7 @@ To run this client-side Next.Js app:
             publicKey: "<YOUR_RELAYER_PUBLIC_KEY>"
         }
 
-● Please execute Approve function before executing the meta-tx. Since the relayer need approval of the user's fund to transfer:
+● Please execute Approve function before executing the meta-tx. Since the relayer need approval of the user's fund to transfer, You can execute by redierecting to the following links:
 
 Token1 - [0xA9e668d6f301Ac5e8D6D0A31a8a130D21D57689d](https://mumbai.polygonscan.com/address/0xa9e668d6f301ac5e8d6d0a31a8a130d21d57689d)  
 

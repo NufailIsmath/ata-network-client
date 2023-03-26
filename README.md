@@ -10,9 +10,19 @@ To run this client-side Next.Js app:
 
 ● Run `npm run dev` to start the client side
 
-● Update the relayer public key based on your relayer address in `src/utils/config.js`
-● `JSON
+● Update the relayer public key based on your relayer address (that executes meta-tx in ```ata-network-relayer```)  in `src/utils/config.js`
+
+     
         export const relayer = {
-            publicKey: "0x73c0D20aB453aD893db78998c7f4c47ED9D86837"
+            publicKey: "<YOUR_RELAYER_PUBLIC_KEY>"
         }
-        `
+
+● Please execute Approve function before executing the meta-tx. Since the relayer need approval of the user's fund to transfer, You can execute by redierecting to the following links:
+
+Token1 - [0xA9e668d6f301Ac5e8D6D0A31a8a130D21D57689d](https://mumbai.polygonscan.com/address/0xa9e668d6f301ac5e8d6d0a31a8a130d21d57689d)  
+
+Token2 - [0xF60ade3278fb56AEC843c0915cCe6ceed3139e74](https://mumbai.polygonscan.com/address/0xF60ade3278fb56AEC843c0915cCe6ceed3139e74) 
+
+Token3 - [0xd0307DE6C85D4dfe782cfb9bB003A7814ace44f1](https://mumbai.polygonscan.com/address/0xd0307DE6C85D4dfe782cfb9bB003A7814ace44f1) 
+
+        

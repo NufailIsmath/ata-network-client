@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import { apis } from "./api/api";
 import { useState, useEffect } from "react";
 import Web3 from "web3";
-import { relayer } from "@/utils/config";
+import { contractAddress, contractId, relayer } from "@/utils/config";
 
 const SignTokenSchema = Yup.object().shape({
   token1Address: Yup.string().required("Required"),
@@ -76,7 +76,7 @@ export default function MetaTx() {
     } else {
       alert("Please Install Metamask!");
     }
-    const contractId = "0xA68Ee0A5b969CaaeA83DC545c8cD996e282ec2B7";
+    const contractId = contractAddress.address;
     const chainId = 80001;
 
     let currentAccounts = await web3.eth.getAccounts();
@@ -271,7 +271,7 @@ export default function MetaTx() {
               fullWidth
               onBlur={props.handleBlur}
               onChange={props.handleChange}
-              label={"Address"}
+              label={"Receiver"}
               name="token1RecAddress"
               type="text"
               value={props.values.token1RecAddress}
@@ -299,7 +299,7 @@ export default function MetaTx() {
               fullWidth
               onBlur={props.handleBlur}
               onChange={props.handleChange}
-              label={"Address"}
+              label={"Receiver"}
               name="token2RecAddress"
               type="text"
               value={props.values.token2RecAddress}
@@ -327,7 +327,7 @@ export default function MetaTx() {
               fullWidth
               onBlur={props.handleBlur}
               onChange={props.handleChange}
-              label={"Address"}
+              label={"Receiver"}
               name="token3RecAddress"
               type="text"
               value={props.values.token3RecAddress}
@@ -350,7 +350,7 @@ export default function MetaTx() {
               }}
               type="submit"
             >
-              Add Token
+              Transfer Tokens
             </Button>
             {account}
           </form>
